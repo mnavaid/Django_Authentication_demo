@@ -13,7 +13,7 @@ def signup(request):
         frm = signup_form(request.POST)
         if frm.is_valid():
             user=frm.save()
-           # group = Group.objects.get(frm.cleaned_data['group'])
+           # group = Group.objects.get(frm.cleaned_data['group']) To add in a Group
            
             user.groups.add(frm.cleaned_data['group'])
             messages.success(request, 'Account created successfully !!!')
