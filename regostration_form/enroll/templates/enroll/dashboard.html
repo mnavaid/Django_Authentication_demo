@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+</head>
+<body>
+<h1>Welcome User {{name}} - Dashboard </h1>
+
+{% if perms.enroll.delete_blog %}
+  <input type="button" value = "Delete">
+
+{% else %}
+  <h1>No delete Permission</h1>
+{% endif %}
+
+{% if perms.enroll.add_blog %}
+  <input type="button" value = "Add">
+
+{% else %}
+  <h1>No Add Permission</h1>
+{% endif %}
+
+<a href="{% url 'logout' %}">Logout</a>
+
+</body>
+</html>
